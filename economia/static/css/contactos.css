@@ -1,0 +1,141 @@
+.bodypagina{
+  position: relative;
+  box-sizing: border-box;
+  color: #111111;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 1rem;
+    line-height: 1.6;
+    min-height: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.mapa{
+  height: 300px;
+  display:block;
+  width:100%;
+  border:none;
+}
+
+.bloque{
+  border-color: #c8e75e;
+  color: #ffffff;
+  background-color: #164417;
+  border-width: 8px;
+  border-style: solid;
+  font-family: 'Open Sans',sans-serif;
+  border-right-style: none;
+  border-left-style: none;
+
+}
+
+.contenido{
+  min-height: 558px;
+  width: 1140px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.titulo1{
+
+  margin: 37px 180px 0 auto;
+  color: #c8e75e;
+  width: fit-content;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 700;
+}
+
+.titulo1contenido{
+  margin: -17px 70px 0 741px;
+  text-align: center;
+  font-family: 'Open Sans',sans-serif;
+}
+
+.titulo2{
+  font-weight: 700;
+    margin: 11px auto 0 377px;
+    color: #c8e75e;
+    width: fit-content;
+    font-family: 'Open Sans',sans-serif;
+}
+
+.titulo2contenido{
+  margin: -34px 444px 0 286px;
+}
+
+.formulario{
+  margin: -180px 53px 0 719px;
+  height: auto;
+  width: 100%;
+}
+
+.contenidoformulario{
+  padding: 10px;
+  margin-left: -10px;
+  width: calc(100% + 10px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.secciones{
+  padding-left: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.seccion{
+  display: none;
+  width: 100%;
+}
+
+.logo{
+  width: 111px;
+  height: 114px;
+  margin: -289px auto 0 0;
+  display: block;
+}
+
+.logotexto{
+  font-size: 1.25rem;
+  font-weight: 700;
+  background-image: none;
+  margin: -69px auto 60px 128px;
+}
+
+.cuadro{
+  border-radius: 15px;
+  border-width: 1px;
+  width: 30%;
+  padding: 10px 12px;
+  font: inherit;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.boton{
+  padding-left: 10px;
+  margin-bottom: 10px;
+  display: block;
+  text-align: center;
+  width: 30%;
+  display: inline-block;
+}
+
+.boton1{
+  color: #111111;
+  background-color: #c8e75e;
+   background-image: none;
+   border-color: transparent;
+   margin-top: 1px;
+   margin-bottom: 1px;
+    position: relative;
+    display: inline-block;
+    padding: 10px 30px;
+
+}
+.textoboton{
+  display: none ;
+}

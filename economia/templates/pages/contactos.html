@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} Quienes {% endblock %}
+
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/contactos.css' %}">
+
+<body class="bodypagina" data-lang="es">
+  <iframe class="mapa"
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31840.442743146887!2d-79.1917896!3d-4.0090439!
+    3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cb37f6776bb51f%3A0x294f7d7b23e36a42!2sSupermaxi%20La%20Pradera!5e0!3m2!1ses-419!2sec!4v1674272127784!5m2!1ses-419!2sec"
+    height="600">
+  </iframe>
+  <section class="bloque">
+    <div class="contenido">
+      <h3 class="titulo1">¿Preguntas?</h3>
+      <h4 class="titulo2">Contactos</h4>
+      <p class="titulo1contenido"> Para todo tipo de preguntas, comentarios e inquietudes; por favor llámanos:
+        914-135-288 o completa el formulario a continuación:</p>
+      <p class="titulo2contenido"> Municipio<br>Ingenieria en Ciencias de la Computacion UTPL. <br>
+        <br>Loja – Ecuador. <br>C/ Marcelino Champagnat, S/N. Edif. Nro. 2. <br>a. <br>
+        <br>Teléfono: 370 1444 – Ext. 2271 <br>Correo electrónico: @utpl.edu.ec
+      </p>
+      <div class="formulario">
+        <form action="" class="contenidoformulario" style="padding: 10px" source="email" name="form">
+          <div class="secciones">
+            <label for="name" class="seccion">Name</label>
+            <input type="text" placeholder="Nombre" id="name" name="name" class="cuadro" required="">
+          </div>
+          <div class="secciones">
+            <label for="email" class="seccion">Email</label>
+            <input type="email" placeholder="Correo" id="email" name="email" class="cuadro" required="">
+          </div>
+          <div class="secciones">
+            <label for="message" class="seccion">Message</label>
+            <textarea placeholder="Descripcion" rows="4" cols="50" id="message" name="message" class="cuadro"
+              required=""></textarea>
+          </div>
+          <div class="boton">
+            <a href="#" class="boton1">Enviar<br>
+            </a>
+            <input type="submit" value="submit" class="textoboton">
+          </div>
+        </form>
+      </div>
+      <img class="logo" src="{% static 'img/logoP.png' %}" alt="" data-image-width="111" data-image-height="114">
+      <h6 class="logotexto">Municipio<br>Verde
+      </h6>
+    </div>
+  </section>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+
+{% load static %}
+
+
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/economico.css' %}">
+
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+<body id="body">
+    
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+      <a href="/" class="selected">
+        <div class="name__page">
+          <i class="far fa-id-badge"></i>
+          </hr>
+          <h4>Municipio Sustentable</h4>
+        </div>
+      </a>
+  
+
+        <div class="options__menu">	
+
+            <a href="/ambiental" >
+                <div class="option">
+                    <i class="fa-sharp fa-solid fa-leaf" title="Inicio"></i>
+                    <h4>Indice Ambiental</h4>
+                </div>
+            </a>
+
+            <a href="/economico" class="selected">
+                <div class="option">
+                    <i class="fa-sharp fa-solid fa-money-bill" title="Portafolio"></i>
+                    <h4>Indice Economico</h4>
+                </div>
+            </a>
+            
+            <a href="/social">
+                <div class="option">
+                    <i class="fa-sharp fa-solid fa-hand" title="Cursos"></i>
+                    <h4>Indice Social</h4>
+                </div>
+            </a>
+
+            <a href="/institucional">
+                <div class="option">
+                    <i class="fa-sharp fa-solid fa-landmark" title="Blog"></i>
+                    <h4>Indice Institucional</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <main>
+        <h1 class="tituloIndicador">Indicador Economico<span style="font-weight: 700;"></span></h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Guardar">
+          </form>
+    </main>
+
+    <script src="{% static '/script/script.js' %}"></script>
+</body>
+
+  
+
+{% endblock %}

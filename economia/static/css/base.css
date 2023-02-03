@@ -1,0 +1,188 @@
+
+/* HEADER */
+header {
+    background-color: #164417;
+    padding: 0px 0;
+    width: 100%;
+    position: fixed; /* para que el header siempre esté visible */
+    top: 0; /* para que el header esté en la parte superior de la página */
+    left: 0; /* para que el header esté en la parte izquierda de la página */
+    z-index: 10;
+  }
+  
+  body {
+    margin: 0px;
+  }
+  @media (max-width: 600px) {
+    nav ul li a {
+      font-size: 16px;
+    }
+    .logo img {
+      width: 30px;
+    }
+    .palabra1 {
+      font-size: 18px;
+    }
+    .palabra2 {
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 600px) {
+    .container {
+      flex-wrap: wrap;
+    }
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo img {
+    width: 50px; /* ajustar según tamaño del logo */
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* centra los elementos */
+  }
+  
+  nav ul li {
+    display: flex;
+    margin-right: 60px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .text-logo {
+      font-size: 20px;
+      color: white;
+      margin-left: 10px;
+    }
+  
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .palabra1 {
+      font-size: 20px;
+      color: white;
+    }
+    .palabra2 {
+      font-size: 14px;
+      color: white;
+    }
+  
+    .texto-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 10px;
+    }
+  
+  
+    .img-text-btn {
+      background: #C8E75E;
+      border: 1px solid #000000;
+      border-radius: 19px;
+      display: flex; /* crea un contenedor flexible */
+      align-items: center; /* centra la imagen y el texto verticalmente */
+    }
+    .img-text-btn img {
+      width: 30px;
+      height: 30px;
+      padding: 5px;
+      margin-right: 10px;
+    }
+    .img-text-btn span{
+      display:block; /* para que cada span ocupe una linea */
+      text-align: right; /* para alinear el texto a la derecha */
+      color: #164417;
+    }
+  
+  
+  /* FIN HEADER */
+  
+    hr {
+      border: 24px solid #67B83F;
+      width: 125%;
+      margin-top: 15px;
+      margin-bottom: 0px;
+  
+  }
+  
+  .linea {
+    border: 3px solid #67B83F;
+    width: 125%;
+    margin: 0;
+  }
+  .img-container {
+    margin: 0;
+  }
+  
+  
+  .titulo-contenedor {
+    text-align: center; /* para centrar el texto */
+  }
+  
+  .titulo-contenedor h2 {
+    display: inline-block; /* para que la línea tenga el mismo ancho que el texto */
+    position: relative;
+  }
+  .titulo-contenedor h2::after {
+    content: "";
+    position: absolute; /* establece una posición absoluta para el pseudo-elemento */
+    left: 0; /* ajusta la posición de la línea */
+    bottom: -10px; /* ajusta la posición de la línea */
+    width: 100%; /* ajusta el ancho de la línea al ancho del h2 */
+    border-bottom: 5px solid #67B83F; /* establece el estilo de la línea */
+  }
+  
+  #drop-area {
+    border: 2px dashed #ccc;
+    padding: 275px;
+    /* background-image: url('../assets/images/ciudades.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    transform: scale(0.8);
+  
+  }
+  
+  #drop-area p {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  
+  #drop-area button {
+    background-color: #489855;
+  
+    color: white;
+    border-radius: 10px;
+    padding: 12px 20px;
+  }
+  
+  .center-button {
+    display: block; /* para que ocupe el ancho completo del contenedor */
+    margin: 8px auto; /* para centrar el botón */
+    background-color: #67B83F;
+    border-radius: 15px;
+    font-family: 'Inter';
+    padding: 10px 30px;
+  
+  
+  }
+  
+  

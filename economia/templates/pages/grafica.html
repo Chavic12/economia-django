@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} Indicadores {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/grafica.css' %}">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<div class="fecha-contenedor">
+    <p>Seleccione el año y el mes:</p>
+    <div class="fecha-formulario">
+
+        <div class="select">
+            <select>
+                <option value="">Año</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+
+        <div class="select">
+            <select>
+                <option value="">Mes</option>
+                <option value="Enero">Enero</option>
+                <option value="Febrero">Febrero</option>
+                <option value="Marzo">Marzo</option>
+            </select>
+        </div>
+    </div>
+
+    <form action="" method="get">
+        <label for="grafico_barras">Gráfico de barras</label>
+        <input type="radio" name="grafico" id="grafico_barras" value="barras" {% if request.GET.grafico == 'barras' %}checked{% endif %}>
+        <br>
+        <label for="grafico_pie">Gráfico de pie</label>
+        <input type="radio" name="grafico" id="grafico_pie" value="pie" {% if request.GET.grafico == 'pie' %}checked{% endif %}>
+        <br><br>
+        <input type="submit" value="Mostrar gráfico">
+      </form>
+      
+      <div>
+        {{ grafico|safe }}
+      </div>
+      
+    <div class="contenedor-imagen">
+        
+        {{ grafico | safe }}
+      
+       
+    </div>
+
+    
+  
+
+
+{% endblock %}

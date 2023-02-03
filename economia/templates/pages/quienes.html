@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} Quienes {% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/quienes.css' %}">
+
+<body class="bodypagina" data-lang="es">
+    <section class="bloque1">
+      <h2 class="titulo">Trabajamos para ti </h2>
+      <div class="subrayado1"></div>
+      <img class="imagen1" src="{% static 'img/trabajamos.png' %}" alt="" data-image-width="620" data-image-height="342">
+      <h4 class="subtitulo">¿Como inicio todo? </h4>
+      <div class="subrayado2"></div>
+      <p class="parrafo"> A partir de una revisión histórica deltratamiento dado a la institución en las diferentes constituciones
+        que han regidola vida republicana de proyectos multidisciplinarios, donde investigadores, estudiantes, docentes y público
+        en general puedan proponer, crear y explorar las distintas formas de experimentación y aprendizaje colaborativo, haciendo
+        uso de las herramientas y tecnología implementadas, generando un espacio de encuentro de experimentación con la ciudadanía.</p>
+      <a class="boton" href="./contactos">Conoce más</a>
+  </section>
+  <section class="bloque2">
+    <div class="recuadro">
+      <h3 class="titulo1"> Conoce nuestro equipo de trabajo</h3>
+      <div class="subrayado3"></div>
+      <div class="listado">
+        <div class="secciones">
+          <div class="seccion">
+            <div class="contenido">
+              <img class="personal" src="{% static 'img/persona1.png' %}" alt="" data-image-width="143" data-image-height="130">
+              <p>Nombres Apellidos</p>
+              <p>Cargo</p>
+              <p class="botonescontacto">
+                <a class="contacto" href="/contactos">CV</a>
+              </p>
+            </div>
+          </div>
+          <div class="seccion">
+            <div class="contenido">
+              <img class="personal" src="{% static 'img/persona2.png' %}" alt="" data-image-width="136" data-image-height="135">
+              <p> Nombres Apellidos</p>
+              <p> Cargo</p>
+              <p class="botonescontacto">
+                <a class="contacto" href="/contactos"> CV</a>
+              </p>
+            </div>
+          </div>
+          <div class="seccion">
+            <div class="contenido">
+              <img class="personal" src="{% static 'img/persona1.png' %}" alt="" data-image-width="143" data-image-height="130">
+              <p> Nombres Apellidos</p>
+              <p> Cargo</p>
+              <p class="botonescontacto">
+                <a class="contacto" href="/contactos"> CV</a>
+              </p>
+            </div>
+          </div>
+          <div class="seccion">
+            <div class="contenido">
+              <img class="personal" src="{% static 'img/persona2.png' %}" alt="" data-image-width="143" data-image-height="130">
+              <p> Nombres Apellidos</p>
+              <p> Cargo</p>
+              <p class="botonescontacto">
+                <a class="contacto" href="/contactos"> CV</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+{% endblock %}

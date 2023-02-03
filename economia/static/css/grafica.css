@@ -1,0 +1,296 @@
+
+/* HEADER */
+header {
+    background-color: #164417;
+    padding: 0px 0;
+    width: 100%;
+    position: fixed; /* para que el header siempre esté visible */
+    top: 0; /* para que el header esté en la parte superior de la página */
+    left: 0; /* para que el header esté en la parte izquierda de la página */
+    z-index: 10;
+  }
+  
+  body {
+    margin: 0px;
+  }
+  @media (max-width: 600px) {
+    nav ul li a {
+      font-size: 16px;
+    }
+    .logo img {
+      width: 30px;
+    }
+    .palabra1 {
+      font-size: 18px;
+    }
+    .palabra2 {
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 600px) {
+    .container {
+      flex-wrap: wrap;
+    }
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo img {
+    width: 50px; /* ajustar según tamaño del logo */
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* centra los elementos */
+  }
+  
+  nav ul li {
+    display: flex;
+    margin-right: 60px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .text-logo {
+      font-size: 20px;
+      color: white;
+      margin-left: 10px;
+    }
+  
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .palabra1 {
+      font-size: 20px;
+      color: white;
+    }
+    .palabra2 {
+      font-size: 14px;
+      color: white;
+    }
+  
+    .texto-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 10px;
+    }
+  
+  
+    .img-text-btn {
+      background: #C8E75E;
+      border: 1px solid #000000;
+      border-radius: 19px;
+      display: flex; /* crea un contenedor flexible */
+      align-items: center; /* centra la imagen y el texto verticalmente */
+    }
+    .img-text-btn img {
+      width: 30px;
+      height: 30px;
+      padding: 5px;
+      margin-right: 10px;
+    }
+    .img-text-btn span{
+      display:block; /* para que cada span ocupe una linea */
+      text-align: right; /* para alinear el texto a la derecha */
+      color: #164417;
+    }
+  
+  
+  /* FIN HEADER */
+  
+    hr {
+      border: 24px solid #67B83F;
+      width: 125%;
+      margin-top: 15px;
+      margin-bottom: 0px;
+  
+  }
+  
+  .linea {
+    border: 3px solid #67B83F;
+    width: 125%;
+    margin: 0;
+  }
+  .img-container {
+    margin: 0;
+  }
+  
+  
+  
+  /* PARA poner le texto y la linea seung el texto */
+  
+  
+  
+  .titulo-contenedor {
+    text-align: center; /* para centrar el texto */
+  
+  }
+  
+  .titulo-contenedor h2 {
+    display: inline-block; /* para que la línea tenga el mismo ancho que el texto */
+    position: relative;
+  }
+  .titulo-contenedor h2::after {
+    content: "";
+    position: absolute; /* establece una posición absoluta para el pseudo-elemento */
+    left: 0; /* ajusta la posición de la línea */
+    bottom: -10px; /* ajusta la posición de la línea */
+    width: 100%; /* ajusta el ancho de la línea al ancho del h2 */
+    border-bottom: 5px solid #67B83F; /* establece el estilo de la línea */
+  }
+  
+  
+  .fecha-contenedor {
+
+
+    display: flex;
+    align-items: stretch;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .fecha-formulario {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+  
+  
+  }
+  
+  .fecha-formulario label {
+    margin-right: 10px;
+  }
+  
+  
+  
+  
+  
+  
+  .select {
+  margin: 10px;
+  border-radius: 19px;
+    position: relative;
+    border: 1px solid #ccc;
+    width: 120px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .select:before {
+      content: '';
+      position: absolute;
+      right: 5px;
+      top: 7px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 7px 5px 0 5px;
+      border-color: #000000 transparent transparent transparent;
+      z-index: 5;
+      pointer-events: none;
+  }
+  
+  .select select {
+      padding: 5px 8px;
+      width: 130%;
+      border: none;
+      box-shadow: none;
+      background-color: #C8E75E;
+  
+      background-image: none;
+      appearance: none;
+  }
+  
+  .cuadrado-padre {
+    width: 100%;
+    display: flex;
+    height: 1700px;
+    margin: 0 auto;
+    background-color: #D9D9D9;
+    text-align: center;
+    flex-direction: column;
+    border: 1px solid #000000;
+  
+  }
+  
+  
+  
+  
+  .cuadrado-hijo {
+    background-color: white;
+    width: 75%;
+    display: flex;
+    text-align: center;
+    margin: inherit;
+    border-radius: 15px;
+    justify-content: center;
+  }
+  
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .form-row label {
+    width: 150%; /* ancho del label */
+    text-align: right; /* alinear texto a la derecha */
+    padding-right: 20px;
+    display: block;
+    text-align: initial;
+    padding: 10px 40px;
+  }
+  
+  
+  .form-row input {
+    background: #C8E75E;
+    border-radius: 20px;
+    padding: 8px;
+  }
+  
+  
+  
+  
+  
+  .center-button {
+    display: block; /* para que ocupe el ancho completo del contenedor */
+    margin: 8px auto; /* para centrar el botón */
+    background-color: #67B83F;
+    border-radius: 15px;
+    font-family: 'Inter';
+    padding: 10px 30px;
+  
+  
+  }
+  
+  .contenedor-imagen img{
+    margin-top: 16%;
+      max-width: 70%;
+      max-height: 70%;
+  
+  }
+  

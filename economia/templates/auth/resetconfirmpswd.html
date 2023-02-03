@@ -1,0 +1,32 @@
+
+{% csrf_token %}
+
+{% load static %}
+
+{% block title %} Reset Pasword {% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+<div class="contenido">
+    <section class="neus">
+        <!-- <img src="{% static '/img/logoNeus.png' %}"> -->
+    </section>
+
+    <section class="textforpswd">
+        <h1>Restablecimiento de contraseña enviado</h1>
+
+        <h3>Le enviamos instrucciones por correo electrónico para configurar su contraseña, si existe una cuenta con el correo electrónico que ingresó. Debería recibirlos en breve.</h3>
+
+        <h3>Si no recibe un correo electrónico, asegúrese de haber ingresado la dirección con la que se registró y verifique su carpeta de correo no deseado.</h3>
+
+
+        <nav class="slideprincipal">
+            <a href="/"><i class="fa-solid fa-right-from-bracket"></i> Regresar </a>
+          </nav> 
+        
+    </section>
+    
+    
+</div>

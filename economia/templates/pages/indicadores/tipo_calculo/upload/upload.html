@@ -1,0 +1,50 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} Quienes {% endblock %}
+
+
+{% block content %}
+
+<body>
+
+    <hr>
+  
+    <div class="img-container">
+
+      <img src="{% static 'img/municipio.png' %}">
+    </div>
+  
+    <hr class="linea">
+  
+    <div class="titulo-contenedor">
+      <h2>Calculo de indicadores</h2>
+  </div>
+  
+  
+  
+  
+  
+  <div id="drop-area">
+    <input type="file" id="file-upload" name="file-upload" accept=".csv, application/vnd.ms-excel" style="display:none">
+  
+    <button>Seleccionar archivo</button>
+  
+    <p>Arrastra tu archivo aquí</p>
+  </div>
+  
+  
+  <a href="/grafica">
+
+ 
+  <button class="center-button">
+    Calcular
+  </button>
+</a>
+  
+  </body>
+  
+
+{% endblock %}

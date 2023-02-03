@@ -1,0 +1,28 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/grafico.css' %}">
+  
+<form method="GET">
+    <select name="indicador">
+      <option value="economico">Indicador Económico</option>
+      <option value="social">Indicador Social</option>
+      <option value="institucional">Indicador Institucional</option>
+      <option value="ambiental">Indicador Ambiental</option>
+    </select>
+    <button type="submit">Ver Gráfico</button>
+  </form>
+  
+
+<div style="display: flex;">
+    <div style="flex: 1;">
+    {% if grafico_mejores %}
+        {{ grafico_mejores|safe }}
+    {% endif %}
+    </div>
+    <div style="flex: 1;">
+    {% if grafico_peores %}
+        {{ grafico_peores|safe }}
+    {% endif %}
+    </div>
+  </div>
+  

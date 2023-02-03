@@ -1,0 +1,185 @@
+.bodypagina{
+    position: relative;
+    box-sizing: border-box;
+    color: #111111;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1rem;
+      line-height: 1.6;
+      min-height: 100%;
+      height: auto;
+      margin: 0;
+  
+  }
+  
+  .bloque1{
+    content: '';
+    display: table;
+    position: relative;
+    margin: 0 auto;
+  
+  }
+  
+  .nd{
+    width: 1140px
+  }
+  
+  
+  .titulo1{
+    font-weight: 700;
+      margin: 38px auto 0;
+      font-size: 2.25rem;
+      line-height: 1.1;
+      word-wrap: break-word;
+      position: relative;
+      width: fit-content;
+  }
+  
+  .subrayado1{
+    width: 462px;
+    transform-origin: left center 0px;
+    margin: 0 auto 15px;
+    border-color: #4c9235;
+    border-width: 3px;
+    border-style: solid;
+  }
+  
+  .bloque2{
+    background-color: #e5e5e5;
+    content: '';
+    position: relative;
+    margin: 0 auto;
+    height: 430px;
+  
+  }
+  
+  .contenidobloque2{
+    min-height: 465px;
+    margin: 0 auto;
+    width: 1140px;
+  }
+  
+  .subtitulo{
+    font-weight: 700;
+      margin: 10px auto 0 78px;
+      font-family: 'Open Sans',sans-serif;
+  }
+  
+  .forma1{
+    width: 404px;
+    box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+    min-height: 154px;
+    height: auto;
+    margin: 14px auto 0 90px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .seccion{
+    padding-left: 7px;
+      padding-right: 7px;
+      position: relative;
+  }
+  
+  .titform1{
+    font-weight: 700;
+    margin: 10px 88px 0 auto;
+    display: table;
+  }
+  
+  .contexto1{
+    font-size: 0.625rem;
+    margin: -5px 24px 0 123px;
+    margin-top: 2px;
+  }
+  
+  .imagen1{
+    width: 95px;
+    height: 87px;
+    margin: -93px auto 0 14px;
+    object-fit: contain;
+    display: block;
+    border-style: none;
+  }
+  
+  .forma2{
+    width: 404px;
+    box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+    min-height: 154px;
+    height: auto;
+    margin: -154px 152px 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    cursor: pointer;
+  
+  }
+  
+  .contexto2{
+    font-size: 0.625rem;
+    margin: -73px 4px 0 108px;
+  }
+  
+  .imagen2{
+    width: 104px;
+    height: 93px;
+    margin: -10px auto 0 0;
+    display: block;
+  }
+  
+  .forma3{
+    width: 404px;
+      box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+      min-height: 154px;
+      height: auto;
+      margin: 30px auto 0 88px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    cursor: pointer;
+  }
+  
+  .contexto3{
+    font-size: 0.625rem;
+    margin: 1px 14px 0 110px;
+    margin-top: 4px;
+  }
+  
+  .imagen3{
+    width: 95px;
+    height: 86px;
+    margin: -86px auto 0 8px;
+    object-fit: contain;
+  }
+  
+  .forma4{
+    width: 404px;
+    box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+    min-height: 158px;
+    height: auto;
+    margin: -157px 152px 60px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    cursor: pointer;
+  
+  }
+  
+  .contexto4{
+    font-size: 0.625rem;
+    margin: -74px 6px 0 116px;
+  }
+  
+  .imagen4{
+    width: 99px;
+    height: 87px;
+    margin: -3px auto 0 10px;
+  }
+  
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }

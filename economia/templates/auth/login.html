@@ -1,0 +1,39 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login/estilos.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/css/login/normalize.css' %}">
+
+
+<body>
+
+    <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario">
+            
+        </div>
+
+        <form method="POST" class="formulario">
+            {% csrf_token %}
+            <div class="texto-formulario">
+                <h2>Bienvenido de nuevo</h2>
+                <p>Inicia sesión con tu cuenta</p>
+            </div>
+            <div class="input">
+                <label for="usuario">Usuario</label>
+                {{ form.username }}
+            </div>
+            <div class="input">
+                <label for="contraseña">Contraseña</label>
+                {{ form.password }}
+            </div>
+            <div class="password-olvidada">
+                <a href="/reset_password">¿Olvidaste tu contraseña?</a>
+                <a href="/register">Registrate</a>
+            </div>
+            <div class="input">
+                <input type="submit" value="Inicio Sesión">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

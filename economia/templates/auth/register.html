@@ -1,0 +1,54 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login/estilos.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/css/login/normalize.css' %}">
+
+
+<body>
+
+    <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario">
+            
+        </div>
+
+        <form method="POST" class="formulario">
+            {% csrf_token %}
+            <div class="texto-formulario">
+                <h2>Registrese</h2>
+                <p>Registrese para usar la plataforma</p>
+            </div>
+            <div class="input">
+                <label for="nombre">Nombre</label>
+                <input placeholder="Ingresa su nombre" type="text" id="nombre" name="nombre">
+            </div>
+            <div class="input">
+                <label for="apellidos">Apellidos</label>
+                <input placeholder="Ingresa su apellidos" type="text" id="apellidos" name="apellidos">
+            </div>
+            <div class="input">
+                <label for="email">Email</label>
+                <input placeholder="Ingresa tu correo" type="email" id="Email" name="email">
+            </div>
+            <div class="input">
+                <label for="usuario">Usuario</label>
+                <input placeholder="Ingresa su usuario" type="text" id="usuario" name="username">
+            </div>
+            
+            <div class="input">
+                <label for="contraseña">Contraseña</label>
+                <input placeholder="Ingresa tu contraseña" type="password" id="password1" name="password1">
+            </div>
+            <div class="input">
+                <label for="contraseña">Confirma la contraseña</label>
+                <input placeholder="Confirma su contraseña" type="password" id="password2" name="password2">
+            </div>
+            <div class="password-olvidada">
+                <a href="/">Iniciar sesión</a>
+            </div>
+            <div class="input">
+                <input type="submit" value="Registrate">
+            </div>
+        </form>
+    </div>
+
+</body>
+

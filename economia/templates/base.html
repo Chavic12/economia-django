@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'img/logoP.png' %}">
+            <div class="texto-header">
+                <span class="palabra1">Municipio</span>
+                <span class="palabra2">Verde</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/quienes">Quienes somos</a></li>
+                <li><a href="/grafica">Visualización</a></li>
+                <li><a href="/contactos">Contactos</a></li>
+                <li>
+                    <a class="img-text-btn" href="/tipoCalculo">
+                        <img src="{% static 'img/empresa.png' %}" alt="Imagen">
+                        <span class="palabra1">Calcular indices</span>
+                    </a>
+                </li>
+                <li><a href="/logout">Salir</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+{% block content %}
+        
+{%endblock %}

@@ -1,0 +1,118 @@
+.bodypagina{
+  position: relative;
+  box-sizing: border-box;
+  color: #111111;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 1rem;
+    line-height: 1.6;
+    min-height: 100%;
+    height: auto;
+    margin: 0;
+
+}
+
+.bloque1{
+  content: '';
+  display: table;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 50px;
+
+}
+
+.nd{
+  width: 1140px
+}
+
+.titulo1{
+  font-weight: 700;
+    margin: 38px auto 0;
+    font-size: 2.25rem;
+    line-height: 1.1;
+    word-wrap: break-word;
+    position: relative;
+    width: fit-content;
+}
+
+.subrayado1{
+  width: 462px;
+  transform-origin: left center 0px;
+  margin: 0 auto 15px;
+  border-color: #4c9235;
+  border-width: 3px;
+  border-style: solid;
+}
+
+.bloque2{
+  background-color: #e5e5e5;
+  content: '';
+  position: relative;
+  margin: 0 auto;
+  height: 430px;
+
+}
+
+.contenidobloque2{
+  margin: 0 auto;
+  width: 1140px;
+}
+
+.subtitulo{
+  font-weight: 700;
+    margin: 10px auto 0 78px;
+    font-family: 'Open Sans',sans-serif;
+}
+
+.forma1{
+  width: 330px;
+  box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+  height: 330px;
+  margin: 20px auto 0 178px;
+  background-color: #ffffff;
+  border-radius: 25px;
+  cursor: pointer;
+
+}
+
+.contenidoforma{
+  padding: 30px;
+  text-align: left;
+}
+
+.icono1{
+  width: 135px;
+    height: 101px;
+    margin: 20px auto 0;
+    overflow: hidden;
+    display: block;
+}
+
+.texto1{
+  font-weight: 700;
+  margin: 20px 18px 0;
+    color: #4c9235;
+}
+
+.contexto1{
+  margin: 7px auto 0 13px;
+}
+
+.forma2{
+  width: 330px;
+  box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+  height: 330px;
+  margin: -330px 180px 39px auto;
+  background-color: #ffffff;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.texto2{
+  color: #4c9235;
+  font-weight: 700;
+  margin: 20px 12px 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,32 @@
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  select {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #graficos {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  #grafico_mejores, #grafico_peores {
+    width: 45%;
+    height: 500px;
+  }
