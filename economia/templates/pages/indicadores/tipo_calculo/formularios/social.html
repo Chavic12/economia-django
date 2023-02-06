@@ -67,8 +67,10 @@
     <h1 class="tituloIndicador">Indicador Social<span style="font-weight: 700;"></span></h1>
     <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Guardar">
+      <div class="form-group text-center" >
+        {{ form.as_p }}
+      </div>
+      <input type="submit" class="btn btn-primary" value="Guardar">
     </form>
   </main>
 

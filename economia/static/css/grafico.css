@@ -1,32 +1,25 @@
 form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  select {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: blue;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #graficos {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  #grafico_mejores, #grafico_peores {
-    width: 45%;
-    height: 500px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+select, button {
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+button {
+  background-color: lightgray;
+}
+.grafico-container {
+  display: flex;
+  justify-content: center;
+}
+.grafico {
+  width: 90%;
+  height: 500px;
+}

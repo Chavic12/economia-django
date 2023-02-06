@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'imagekit',
     'plotly',
     'usuarios',
-    'plotly.offline'
+    'plotly.offline',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

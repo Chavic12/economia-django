@@ -210,3 +210,36 @@ a.selected{
     border-color: #b3b3b3;
     background-color: #fef9e6;
   }
+
+  .form-group {
+    display: grid;
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+  }
+  .form-group p {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    border-color: #b3b3b3;
+    background-color: #c8e75e;
+    grid-column: 2;
+    margin-top: 10px;
+  }
+  
+  .btn {
+    display: block;
+        margin: auto;
+        margin-top: 40px;
+        grid-column: 1;
+        background-color: #c8e75e ;
+        display: inline-block;
+        padding: 10px 30px;;
+        cursor: pointer;
+        border-radius: 7px;
+  }
+
+  
+  
+  

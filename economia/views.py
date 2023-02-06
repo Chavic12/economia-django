@@ -29,7 +29,7 @@ def agregar_indicador_ambiental(request):
         else:
             messages.error(request, 'El formulario no es válido. Por favor verifique los datos ingresados.')
     else:
-        form = IndicadorEconomicoForm()
+        form = IndicadorAmbientalForm()
         
     return render(request, 'pages/indicadores/tipo_calculo/formularios/ambiental.html', {'form': form})
 
@@ -44,7 +44,7 @@ def agregar_indicador_institucional(request):
         else:
             messages.error(request, 'El formulario no es válido. Por favor verifique los datos ingresados.')
     else:
-        form = IndicadorEconomicoForm()
+        form = IndicadorInstitucionalForm()
         
     return render(request, 'pages/indicadores/tipo_calculo/formularios/institucional.html', {'form': form})
 
@@ -227,6 +227,9 @@ def grafico_municipios(request):
         'grafico_peores': grafico_peores
     }
     return render(request, 'grafico_municipios.html', context)
+
+
+    
 # vista de Django
 def grafico_municipios2(request):
     if request.method == 'GET':
