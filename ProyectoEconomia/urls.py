@@ -29,7 +29,7 @@ urlpatterns = [
     path('guardar_formulario_ambiental/', views.guardar_formulario_ambiental, name='guardar_formulario_ambiental'),
 
     # path('mostrar_subindice/', views.mostrar_subindice, name='select_municipality'),
-    path('seleccion_municipio/', views.seleccion_municipio, name='grafico_municipios2'),
+    path('seleccion_municipio/', views.seleccion_municipio, name='seleccion_municipio'),
     path('grafico_municipios/', views.grafico_municipios, name='grafico_municipios'),
     # TODO: LOGIN Y REGISTER
     path('logout/',login_required(logoutUsuario),name='logout'),

@@ -180,12 +180,21 @@ def guardar_formulario_ambiental(request):
 # TODO: Mostrar Graficas
 # vista de Django
 def grafico_municipios(request):
+
+    
     # Obtener el indicador seleccionado por el usuario
     if 'indicador' in request.GET:
         indicador = request.GET.get('indicador')
     else:
         # Asignar un valor predeterminado para 'indicador' si no está definido
         indicador = 'economico'
+
+    # Obtener el año seleccionado por el usuario
+    if 'anio' in request.GET:
+        anio = request.GET.get('anio')
+    else:
+        # Asignar un valor predeterminado para 'year' si no está definido
+        anio = 2020
     
     # Obtener todos los municipios
     municipios = Municipio.objects.all()
@@ -194,18 +203,37 @@ def grafico_municipios(request):
     # Recorrer los municipios y obtener el indicador específico
     for municipio in municipios:
         if indicador == 'economico':
-            indicador_seleccionado = IndicadorEconomico.objects.get(municipio=municipio)
+            try:
+                indicador_seleccionado = IndicadorEconomico.objects.get(municipio=municipio, anio=anio)
+            except IndicadorEconomico.DoesNotExist:
+                continue
         elif indicador == 'social':
-            indicador_seleccionado = IndicadorSocial.objects.get(municipio=municipio)
+            try:
+                indicador_seleccionado = IndicadorSocial.objects.get(municipio=municipio, anio=anio)
+            except IndicadorSocial.DoesNotExist:
+                continue
         elif indicador == 'institucional':
-            indicador_seleccionado = IndicadorInstitucional.objects.get(municipio=municipio)
+            try:
+                indicador_seleccionado = IndicadorInstitucional.objects.get(municipio=municipio, anio=anio)
+            except IndicadorInstitucional.DoesNotExist:
+                continue
         elif indicador == 'ambiental':
-            indicador_seleccionado = IndicadorAmbiental.objects.get(municipio=municipio)
+            try:
+                indicador_seleccionado = IndicadorAmbiental.objects.get(municipio=municipio, anio=anio)
+            except IndicadorAmbiental.DoesNotExist:
+                continue
+
+
 
         data.append({
             'municipio': municipio.nombre,
             'subindice': indicador_seleccionado.subindice
         })
+    if not data:
+        context = {
+            'message': 'No se encontraron datos para el año seleccionado.'
+        }
+        return render(request, 'grafico_municipios.html', context)
     
     # Ordenar los datos por subíndice
     data = sorted(data, key=lambda x: x['subindice'])
@@ -214,9 +242,28 @@ def grafico_municipios(request):
     mejores_municipios = data[-5:]
     peores_municipios = data[:5]
     
+    if 'tipo_grafico' in request.GET:
+        tipo_grafico = request.GET.get('tipo_grafico')
+    else:
+        # Asignar un valor predeterminado para 'tipo_grafico' si no está definido
+        tipo_grafico = 'bar'
+
     # Crear dos gráficas, una para los 5 mejores y otra para los 5 peores
-    fig_mejores = px.bar(mejores_municipios, x='municipio', y='subindice', color='municipio')
-    fig_peores = px.bar(peores_municipios, x='municipio', y='subindice', color='municipio')
+    if tipo_grafico == 'bar':
+        fig_mejores = px.bar(mejores_municipios, x='municipio', y='subindice', color='municipio')
+        fig_peores = px.bar(peores_municipios, x='municipio', y='subindice', color='municipio')
+    elif tipo_grafico == 'pie':
+       
+        fig_mejores = px.pie(mejores_municipios, values='subindice', names='municipio')
+
+        fig_peores = px.pie(peores_municipios, values='subindice', names='municipio')
+        fig_mejores.update_traces(textposition='inside', textinfo='value+percent')
+        fig_peores.update_traces(textposition='inside', textinfo='value+percent')
+       
+
+
+
+
     
     grafico_mejores = pyo.plot(fig_mejores, auto_open=False, output_type='div')
     grafico_peores = pyo.plot(fig_peores, auto_open=False, output_type='div')
@@ -228,40 +275,74 @@ def grafico_municipios(request):
     }
     return render(request, 'grafico_municipios.html', context)
 
+def seleccion_municipio(request):
+    if 'municipality' in request.GET:
+        municipality_id = request.GET.get('municipality')
+    else:
+        # Asignar un valor predeterminado para 'municipality' si no está definido
+        municipality_id = None
+    
+    if 'tipo_grafico' in request.GET:
+        tipo_grafico = request.GET.get('tipo_grafico')
+    else:
+        # Asignar un valor predeterminado para 'tipo_grafico' si no está definido
+        tipo_grafico = 'pie'
 
     
-# vista de Django
-def grafico_municipios2(request):
-    if request.method == 'GET':
-        # Obtener el municipio seleccionado por el usuario
-        municipio = request.GET.get('municipio')
+
+    municipalities = Municipio.objects.all()
+    context = {'municipalities': municipalities}
+
+    if municipality_id:
+        municipality = Municipio.objects.get(pk=municipality_id)
+        economic_indicators = IndicadorEconomico.objects.filter(municipio=municipality)
+        social_indicators = IndicadorSocial.objects.filter(municipio=municipality)
+        environmental_indicators = IndicadorAmbiental.objects.filter(municipio=municipality)
+        institutional_indicators = IndicadorInstitucional.objects.filter(municipio=municipality)
         
-        # Obtener los objetos de los indicadores correspondientes al municipio seleccionado
-        try:
-            indicador_economico = IndicadorEconomico.objects.get(municipio=municipio)
-            indicador_social = IndicadorSocial.objects.get(municipio=municipio)
-            indicador_institucional = IndicadorInstitucional.objects.get(municipio=municipio)
-            indicador_ambiental = IndicadorAmbiental.objects.get(municipio=municipio)
-        except IndicadorEconomico.DoesNotExist:
-            return HttpResponse("No existen datos para este municipio")
+        data = []
+        for economic_indicator in economic_indicators:
+            data.append({
+            'indicator': 'Economic',
+            'subindex': economic_indicator.subindice,
+           
+            })
+        for social_indicator in social_indicators:
+            data.append({
+            'indicator': 'Social',
+            'subindex': social_indicator.subindice,
+           
+            })
+        for environmental_indicator in environmental_indicators:
+            data.append({
+            'indicator': 'Environmental',
+            'subindex': environmental_indicator.subindice,
+           
+            })
+        for institutional_indicator in institutional_indicators:
+            data.append({
+            'indicator': 'Institutional',
+            'subindex': institutional_indicator.subindice,
+           
+            })
         
-        # Crear una lista de diccionarios con los datos de los indicadores
-        data = [
-            {'indicador': 'Económico', 'subindice': indicador_economico.subindice},
-            {'indicador': 'Social', 'subindice': indicador_social.subindice},
-            {'indicador': 'Institucional', 'subindice': indicador_institucional.subindice},
-            {'indicador': 'Ambiental', 'subindice': indicador_ambiental.subindice},
-        ]
-        
-        # Crear una gráfica de barras con los subíndices de los 4 indicadores
-        fig = px.bar(data, x='indicador', y='subindice', color='subindice')
+        fig = px.bar(data, x="indicator", y="subindex", color="indicator")
+
+        if tipo_grafico == 'bar':
+            fig = px.bar(data, x="indicator", y="subindex", color="indicator")
+            
+        elif tipo_grafico == 'pie':
+            fig = px.pie(data, names="indicator", values="subindex")
+          
         grafico = pyo.plot(fig, auto_open=False, output_type='div')
-        
-        context = {
-            'grafico': grafico,
-        }
-        return render(request, 'grafico_municipios.html', context)
-    return HttpResponse("Solo se permiten peticiones GET")
+        context['grafico'] = grafico
+
+    return render(request, 'seleccion_municipio.html', context)
+
+
+
+
+
 
 
 
@@ -317,20 +398,15 @@ def create_bar_chart(indicadores):
 
     return fig
 
-def seleccion_municipio(request):
-    if request.method == 'POST':
-        municipio = request.POST['municipio']
-        ambiental = IndicadorAmbiental.objects.get(municipio=municipio).subindice
-        social = IndicadorSocial.objects.get(municipio=municipio).subindice
-        institucional = IndicadorInstitucional.objects.get(municipio=municipio).subindice
-        economico = IndicadorEconomico.objects.get(municipio=municipio).subindice
-
-
-        fig = px.bar(x=['Indicador Ambiental', 'Indicador Social', 'Indicador Institucional', 'Indicador Económico'],
-                    y=[ambiental, social, institucional, economico])
-        grafica = pyo.plot(fig, auto_open=False, output_type='div')
-        context = {'grafica': grafica}
-
-        return render(request, 'resultados.html', context)
-    else:
-        return render(request, 'seleccion_municipio.html')
+# def seleccion_municipio(request):
+   
+#     municipality = request.GET.get('municipality')
+#     municipalities = Municipio.objects.all()
+#     context = {'municipalities': municipalities}
+#     if municipality:
+#         print('hola')
+#         # aquí debes acceder a tus datos y filtrarlos por el municipio seleccionado
+#         data = Indicador.objects.filter(municipality__name=municipality)
+#         fig = px.bar(data, x="subindex", y="value", color="indicator")
+#         context['fig'] = fig
+#     return render(request, 'seleccion_municipio.html', context)

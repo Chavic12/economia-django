@@ -1,9 +1,120 @@
-<form method="post">
-  {% csrf_token %}
-  <select name="municipio">
-      {% for municipio in municipios %}
-      <option value="{{ municipio }}">{{ municipio }}</option>
-      {% endfor %}
-  </select>
-  <button type="submit">Submit</button>
-</form>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/grafico.css' %}">
+
+
+
+
+<script>
+  // Recuperar la selección de la cookie
+  var selectedOption = getCookie("selectedIndicator");
+  if (selectedOption) {
+    // Establecer la selección en el select
+    document.getElementById("indicador").value = selectedOption;
+  }
+
+  // Guardar la selección en una cookie al enviar el formulario
+  document.querySelector("form").addEventListener("submit", function () {
+    setCookie("selectedIndicator", document.getElementById("indicador").value, 7);
+  });
+
+  // Funciones para trabajar con cookies
+  function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+  function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == " ") c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+</script>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/ambiental.css' %}">
+
+<script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+<body id="body">
+
+  <header>
+
+    <div class="icon__menu">
+      <i class="fas fa-bars" id="btn_open"></i>
+    </div>
+
+  </header>
+
+  <h1 class="tituloIndicador">Calculadora por municipio<span style="font-weight: 700;"></span></h1>
+
+
+
+  <div class="menu__side" id="menu_side">
+    <a href="/" class="selected">
+      <div class="name__page">
+        <i class="far fa-id-badge"></i>
+        </hr>
+        <h4>Municipio Sustentable</h4>
+      </div>
+    </a>
+
+
+    <div class="options__menu">
+
+      <a href="/grafico_municipios" class="selected">
+        <div class="option">
+          <i class="fa-sharp fa-solid fa-leaf" title="Inicio"></i>
+          <h4>Grafica por indicadores</h4>
+        </div>
+      </a>
+
+      <a href="/seleccion_municipio">
+        <div class="option">
+          <i class="fa-sharp fa-solid fa-money-bill" title="Portafolio"></i>
+          <h4>Grafico por municipio</h4>
+        </div>
+      </a>
+
+
+    </div>
+
+  </div>
+
+  <main>
+    <form action="{% url 'seleccion_municipio' %}" method="get">
+      <label for="municipality">Elige un municipio:</label>
+      <select name="municipality" id="municipality">
+        {% for municipality in municipalities %}
+        <option value="{{ municipality.pk }}">{{ municipality.nombre }}</option>
+        {% endfor %}
+      </select>
+      <select name="tipo_grafico">
+        <option value="pie">Gráfico de Pie</option>
+        <option value="bar">Gráfico de Barra</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="plotly-graph">
+      {% if grafico %}
+      {{ grafico|safe }}
+      {% endif %}
+    </div>
+
+
+  </main>
+
+  <script src="{% static '/script/script.js' %}"></script>
+</body>

@@ -1,29 +1,151 @@
 {% load static %}
 
-
 <link rel="stylesheet" type="text/css" href="{% static '/css/grafico.css' %}">
-  
-<form method="GET">
-    <select name="indicador">
-      <option value="economico">Indicador Económico</option>
-      <option value="social">Indicador Social</option>
-      <option value="institucional">Indicador Institucional</option>
-      <option value="ambiental">Indicador Ambiental</option>
-    </select>
-    <button type="submit">Ver Gráfico</button>
-  </form>
-  
 
-<div style="display: flex;">
-    <div style="flex: 1;">
-    {% if grafico_mejores %}
-        {{ grafico_mejores|safe }}
-    {% endif %}
+
+
+
+<script>
+  // Recuperar la selección de la cookie
+  var selectedOption = getCookie("selectedIndicator");
+  if (selectedOption) {
+    // Establecer la selección en el select
+    document.getElementById("indicador").value = selectedOption;
+  }
+
+  // Guardar la selección en una cookie al enviar el formulario
+  document.querySelector("form").addEventListener("submit", function () {
+    setCookie("selectedIndicator", document.getElementById("indicador").value, 7);
+  });
+
+  // Funciones para trabajar con cookies
+  function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+  function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == " ") c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+</script>
+
+{% load static %}
+
+
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/ambiental.css' %}">
+
+<script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+<body id="body">
+
+  <header>
+    <div class="icon__menu">
+      <i class="fas fa-bars" id="btn_open"></i>
     </div>
-    <div style="flex: 1;">
-    {% if grafico_peores %}
-        {{ grafico_peores|safe }}
-    {% endif %}
-    </div>
-  </div>
+
+
+  </header>
+
+
+  <h1 class="tituloIndicador">Calculadora por indice<span style="font-weight: 700;"></span></h1>
+  <div class="menu__side" id="menu_side">
+    <a href="/" class="selected">
+      <div class="name__page">
+        <i class="far fa-id-badge"></i>
+        </hr>
+        <h4>Municipio Sustentable</h4>
+      </div>
+    </a>
+
+
+    <div class="menu__side" id="menu_side">
+      <a href="/" class="selected">
+        <div class="name__page">
+          <i class="far fa-id-badge"></i>
+          </hr>
+          <h4>Municipio Sustentable</h4>
+        </div>
+      </a>
   
+  
+      <div class="options__menu">
+  
+        <a href="/grafico_municipios" class="selected">
+          <div class="option">
+            <i class="fa-sharp fa-solid fa-leaf" title="Inicio"></i>
+            <h4>Grafica por indicadores</h4>
+          </div>
+        </a>
+  
+        <a href="/seleccion_municipio">
+          <div class="option">
+            <i class="fa-sharp fa-solid fa-money-bill" title="Portafolio"></i>
+            <h4>Grafico por municipio</h4>
+          </div>
+        </a>
+  
+  
+      </div>
+  
+    </div>
+
+  </div>
+
+  <main>
+    <form method="GET">
+      <select name="indicador" id="indicador">
+        <option value="economico">Indicador Económico</option>
+        <option value="social">Indicador Social</option>
+        <option value="institucional">Indicador Institucional
+        </option>
+        <option value="ambiental">Indicador Ambiental</option>
+      </select>
+      <select name="anio">
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+      </select>
+      <select name="tipo_grafico">
+        <option value="pie">Gráfico de Pie</option>
+        <option value="bar">Gráfico de Barra</option>
+      </select>
+      <button type="submit">Ver Gráfico</button>
+    </form>
+    {% if grafico_mejores or grafico_peores %}
+
+    <div style="display: flex;">
+      <div style="flex: 1;">
+        {% if grafico_mejores %}
+        {{ grafico_mejores|safe }}
+        {% endif %}
+      </div>
+      <div style="flex: 1;">
+        {% if grafico_peores %}
+        {{ grafico_peores|safe }}
+        {% endif %}
+      </div>
+    </div>
+    {% else %}
+    <p>No se encontraron datos para el año seleccionado</p>
+    {% endif %}
+
+  </main>
+
+  <script src="{% static '/script/script.js' %}"></script>
+</body>
+
+
+{% endblock %}
